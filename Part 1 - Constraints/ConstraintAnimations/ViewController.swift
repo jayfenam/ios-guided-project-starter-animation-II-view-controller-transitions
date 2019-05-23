@@ -21,11 +21,27 @@ class ViewController: UIViewController {
     }
     
     @IBAction func animateSquare(_ sender: Any) {
+
+        redViewTopConstraint.constant = 200
+        UIView.animate(withDuration: 1) {
+            //In order to show the changes to the constant on the view we need to tell the superview to layout its subviews
+
+            self.view.layoutIfNeeded()
+
+
+        }
         
     }
     
     @IBAction func changeConstraints(_ sender: Any) {
-        
+
+        redViewTopConstraint.isActive = !redViewTopConstraint.isActive
+        redViewBottomConstraint.isActive = !redViewBottomConstraint.isActive
+
+        UIView.animate(withDuration: 1.5) {
+            self.view.layoutIfNeeded()
+        }
+
     }
 }
 
